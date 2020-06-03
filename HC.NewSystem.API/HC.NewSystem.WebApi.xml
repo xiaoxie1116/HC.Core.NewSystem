@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HC.NewSystem.WebApi</name>
+    </assembly>
+    <members>
+        <member name="T:HC.NewSystem.API.Controllers.OrderInfoController">
+            <summary>
+            订单控制器
+            </summary>
+        </member>
+        <member name="M:HC.NewSystem.API.Controllers.OrderInfoController.GetOrderInfo">
+            <summary>
+            获取订单信息
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
