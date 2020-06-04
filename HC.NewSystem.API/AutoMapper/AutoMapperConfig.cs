@@ -6,13 +6,16 @@ using System.Threading.Tasks;
 
 namespace HC.NewSystem.WebApi
 {
+    /// <summary>
+    /// 注册 automapper 实例
+    /// </summary>
     public class AutoMapperConfig
     {
         public static MapperConfiguration RegisterMappings()
         {
             return new MapperConfiguration(cfg =>
             {
-                cfg.AddProfile(new AddMapperProfile());
+                cfg.AddProfile(new AddMapperExample());
             });
         }
     }
