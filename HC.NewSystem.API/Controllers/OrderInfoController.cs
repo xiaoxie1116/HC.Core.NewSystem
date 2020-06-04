@@ -12,14 +12,13 @@ namespace HC.NewSystem.API.Controllers
     /// <summary>
     /// 订单控制器
     /// </summary>
+    [Route("api/[controller]/[action]")]
     [ApiController]
-    [Route("[controller]")]
     public class OrderInfoController : ControllerBase
     {
-
         private readonly ILogger<OrderInfoController> _logger;
 
-        private IOrderServices _services;
+        private readonly IOrderServices _services;
 
         public OrderInfoController(ILogger<OrderInfoController> logger, IOrderServices services)
         {
@@ -34,7 +33,8 @@ namespace HC.NewSystem.API.Controllers
         [HttpGet]
         public async Task<OrderVM> GetOrderByID(int OrderID)
         {
-            var result = await _services.QueryById(OrderID);
+            if (OrderID <= 0) return null;
+            var result = await _services.GetEntityByID(OrderID);
             return result;
         }
 

@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\HC.Core.IServices\HC.Core.IServices.csproj" />
     <ProjectReference Include="..\HC.Core.Services\HC.Core.Services.csproj" />
+    <ProjectReference Include="..\HY.Core.Repository\HC.Core.Repository.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +36,12 @@
     <Content Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="AutoMapper\AddMapperProfile.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
   </ItemGroup>
 
 

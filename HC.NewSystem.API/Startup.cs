@@ -16,8 +16,10 @@ using Autofac;
 using System.Reflection;
 using Autofac.Extras.DynamicProxy;
 using Autofac.Extensions.DependencyInjection;
+using AutoMapper;
+using HC.Core.Repository;
 
-namespace HC.NewSystem.API
+namespace HC.NewSystem.WebApi
 {
     public class Startup
     {
@@ -29,55 +31,30 @@ namespace HC.NewSystem.API
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public IServiceProvider ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
 
             //注册要通过反射创建的组件
             var basePath = Path.GetDirectoryName(typeof(Program).Assembly.Location); //获取应用程序所在目录（绝对，不受工作目录影响，建议采用此方法获取路径）
-            #region Swagger
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo()
-                {
-                    Version = "v1.0",
-                    Title = "HC.WebAPI",
-                    Description = "华程国旅后台接口",
-                });
-                // 为 Swagger JSON and UI设置xml文档注释路径
-                var xmlPath = Path.Combine(basePath, "HC.NewSystem.WebApi.xml");
-                c.IncludeXmlComments(xmlPath, true);
-                var xmlModelPath = Path.Combine(basePath, "HC.Core.DTO.Models.xml"); //Model实体注释                  
-                c.IncludeXmlComments(xmlModelPath);
+            // Swagger UI
+            services.AddSwaggerSetup(basePath);
+            // Automapper
+            services.AddAutoMapperSetup();
 
-            });
-            #endregion
+            //services.AddTransient<Core.IServices.IOrderServices, Core.Services.OrderServices>();
+            //services.AddTransient<Core.IRepository.IOrderRepository, OrderRepository>();
 
-            #region Autofac
+            services.AddControllers()
+                    .AddControllersAsServices();
+        }
 
-            var builder = new ContainerBuilder();
-
-            //整个程序集的注入实现层级解耦，如果路径不对，请修改对应的生成路径
-            var servicesDllFile = Path.Combine(basePath, "HC.Core.Services.dll");
-            var assemblysServices = Assembly.LoadFrom(servicesDllFile);
-            var cacheType = new List<Type>();
-
-            builder.RegisterAssemblyTypes(assemblysServices).AsImplementedInterfaces()
-                 .AsImplementedInterfaces()
-                 .InstancePerLifetimeScope()
-                 .EnableInterfaceInterceptors()//引用Autofac.Extras.DynamicProxy;
-                 .InterceptedBy(cacheType.ToArray());//将拦截器添加到要注入容器的接口或者类之上。(可以直接替换拦截器)
-
-            var repositoryDllFile = Path.Combine(basePath, "HY.Core.Repository.dll");
-            var assemblysRepository = Assembly.LoadFrom(repositoryDllFile);
-            builder.RegisterAssemblyTypes(assemblysRepository).AsImplementedInterfaces();
-            #endregion
-            //将services填充到Autofac容器生成器中
-            builder.Populate(services);
-
-            services.AddControllers();
-            //使用已进行的组件登记创建新容器，判断是否注入到容器中，可以直接看看容器 ApplicationContainer  Registrations的内容
-            var ApplicationContainer = builder.Build();
-            return new AutofacServiceProvider(ApplicationContainer);//第三方IOC接管 core内置DI容器
+        /// <summary>
+        /// Autofac注册，注意在Program.CreateHostBuilder，添加Autofac服务工厂
+        /// </summary>
+        /// <param name="builder"></param>
+        public void ConfigureContainer(ContainerBuilder builder)
+        {
+            builder.RegisterModule(new AutofacModuleRegister());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

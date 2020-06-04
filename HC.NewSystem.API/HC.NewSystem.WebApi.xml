@@ -4,6 +4,33 @@
         <name>HC.NewSystem.WebApi</name>
     </assembly>
     <members>
+        <member name="T:HC.NewSystem.WebApi.AddMapperProfile">
+            <summary>
+            创建实体映射
+            services.AddAutoMapper是会自动找到所有继承了Profile的类然后进行配置
+            </summary>
+        </member>
+        <member name="T:HC.NewSystem.WebApi.AutofacModuleRegister">
+            <summary>
+            autoFac模块的注入
+            </summary>
+        </member>
+        <member name="T:HC.NewSystem.WebApi.AutoMapperSetup">
+            <summary>
+            automapper 配置文件
+            </summary>
+        </member>
+        <member name="T:HC.NewSystem.WebApi.SwaggerSetup">
+            <summary>
+            设置 SwaggerUI 组件
+            </summary>
+        </member>
+        <member name="M:HC.NewSystem.WebApi.Startup.ConfigureContainer(Autofac.ContainerBuilder)">
+            <summary>
+            Autofac注册，注意在Program.CreateHostBuilder，添加Autofac服务工厂
+            </summary>
+            <param name="builder"></param>
+        </member>
         <member name="T:HC.NewSystem.API.Controllers.OrderInfoController">
             <summary>
             订单控制器

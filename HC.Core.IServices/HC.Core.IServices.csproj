@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HC.Core.VModels\HC.Core.DTO.Models.csproj" />
+    <ProjectReference Include="..\HY.Core.DB.Entitys\HC.Core.DB.Entitys.csproj" />
   </ItemGroup>
 
   <ItemGroup>

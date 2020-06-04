@@ -5,12 +5,14 @@ using HC.Core.IServices;
 using System;
 using System.Threading.Tasks;
 using AutoMapper;
+using HC.Core.DB.Entitys;
+
 namespace HC.Core.Services
 {
     /// <summary>
     /// 订单服务
     /// </summary>
-    public class OrderServices : BaseServices<OrderVM>, IOrderServices
+    public class OrderServices : BaseServices<Order>, IOrderServices
     {
 
         IOrderRepository _repository;
@@ -34,6 +36,6 @@ namespace HC.Core.Services
             return _mapper.Map<OrderVM>(entity);
         }
 
-
+      
     }
 }
