@@ -12,6 +12,10 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
 using System.IO;
+using Autofac;
+using System.Reflection;
+using Autofac.Extras.DynamicProxy;
+using Autofac.Extensions.DependencyInjection;
 
 namespace HC.NewSystem.API
 {
@@ -25,7 +29,7 @@ namespace HC.NewSystem.API
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
 
             //注册要通过反射创建的组件
@@ -48,7 +52,32 @@ namespace HC.NewSystem.API
             });
             #endregion
 
+            #region Autofac
+
+            var builder = new ContainerBuilder();
+
+            //整个程序集的注入实现层级解耦，如果路径不对，请修改对应的生成路径
+            var servicesDllFile = Path.Combine(basePath, "HC.Core.Services.dll");
+            var assemblysServices = Assembly.LoadFrom(servicesDllFile);
+            var cacheType = new List<Type>();
+
+            builder.RegisterAssemblyTypes(assemblysServices).AsImplementedInterfaces()
+                 .AsImplementedInterfaces()
+                 .InstancePerLifetimeScope()
+                 .EnableInterfaceInterceptors()//引用Autofac.Extras.DynamicProxy;
+                 .InterceptedBy(cacheType.ToArray());//将拦截器添加到要注入容器的接口或者类之上。(可以直接替换拦截器)
+
+            var repositoryDllFile = Path.Combine(basePath, "HY.Core.Repository.dll");
+            var assemblysRepository = Assembly.LoadFrom(repositoryDllFile);
+            builder.RegisterAssemblyTypes(assemblysRepository).AsImplementedInterfaces();
+            #endregion
+            //将services填充到Autofac容器生成器中
+            builder.Populate(services);
+
             services.AddControllers();
+            //使用已进行的组件登记创建新容器，判断是否注入到容器中，可以直接看看容器 ApplicationContainer  Registrations的内容
+            var ApplicationContainer = builder.Build();
+            return new AutofacServiceProvider(ApplicationContainer);//第三方IOC接管 core内置DI容器
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

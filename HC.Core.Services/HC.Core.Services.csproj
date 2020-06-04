@@ -4,4 +4,23 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HC.Core.IRepository\HC.Core.IRepository.csproj" />
+    <ProjectReference Include="..\HC.Core.IServices\HC.Core.IServices.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="HC.Common.Base">
+      <HintPath>..\..\Library\Common\HC.Common.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="HC.Common.Tools">
+      <HintPath>..\..\Library\Common\HC.Common.Tools.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

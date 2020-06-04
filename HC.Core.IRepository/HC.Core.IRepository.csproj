@@ -4,4 +4,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HY.Core.DB.Entitys\HC.Core.DB.Entitys.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="HC.Common.Base">
+      <HintPath>..\..\Library\Common\HC.Common.Base.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

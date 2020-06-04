@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using HC.Core.DTO.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using HC.Core.IServices;
 
 namespace HC.NewSystem.API.Controllers
 {
@@ -17,9 +19,12 @@ namespace HC.NewSystem.API.Controllers
 
         private readonly ILogger<OrderInfoController> _logger;
 
-        public OrderInfoController(ILogger<OrderInfoController> logger)
+        private IOrderServices _services;
+
+        public OrderInfoController(ILogger<OrderInfoController> logger, IOrderServices services)
         {
             _logger = logger;
+            _services = services;
         }
 
         /// <summary>
@@ -27,9 +32,10 @@ namespace HC.NewSystem.API.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        public ActionResult<string> GetOrderInfo()
+        public async Task<OrderVM> GetOrderByID(int OrderID)
         {
-            return "订单信息请求接口";
+            var result = await _services.QueryById(OrderID);
+            return result;
         }
 
     }

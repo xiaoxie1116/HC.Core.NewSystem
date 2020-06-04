@@ -9,7 +9,7 @@
             订单控制器
             </summary>
         </member>
-        <member name="M:HC.NewSystem.API.Controllers.OrderInfoController.GetOrderInfo">
+        <member name="M:HC.NewSystem.API.Controllers.OrderInfoController.GetOrderByID(System.Int32)">
             <summary>
             获取订单信息
             </summary>

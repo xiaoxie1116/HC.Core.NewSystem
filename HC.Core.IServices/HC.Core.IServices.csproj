@@ -4,4 +4,14 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\HC.Core.VModels\HC.Core.DTO.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="HC.Common.Base">
+      <HintPath>..\..\Library\Common\HC.Common.Base.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

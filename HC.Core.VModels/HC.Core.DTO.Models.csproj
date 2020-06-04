@@ -13,8 +13,4 @@
     <None Remove="HC.Core.DTO.Models.xml" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Order\" />
-  </ItemGroup>
-
 </Project>
