@@ -40,10 +40,7 @@ namespace HC.NewSystem.WebApi
             services.AddSwaggerSetup(basePath);
             // Automapper
             services.AddAutoMapperSetup();
-
-            //services.AddTransient<Core.IServices.IOrderServices, Core.Services.OrderServices>();
-            //services.AddTransient<Core.IRepository.IOrderRepository, OrderRepository>();
-
+                   
             services.AddControllers()
                     .AddControllersAsServices();
         }
