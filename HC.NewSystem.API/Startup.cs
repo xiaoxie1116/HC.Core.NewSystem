@@ -18,6 +18,7 @@ using Autofac.Extras.DynamicProxy;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
 using HC.Core.Repository;
+using HC.NewSystem.WebApi.Filters;
 
 namespace HC.NewSystem.WebApi
 {
@@ -40,9 +41,12 @@ namespace HC.NewSystem.WebApi
             services.AddSwaggerSetup(basePath);
             // Automapper
             services.AddAutoMapperSetup();
-                   
-            services.AddControllers()
-                    .AddControllersAsServices();
+
+            services.AddControllers(s =>
+            {
+                s.Filters.Add(typeof(GlobalExceptionFilter));
+
+            });
         }
 
         /// <summary>

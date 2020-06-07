@@ -38,5 +38,27 @@ namespace HC.NewSystem.API.Controllers
             return result;
         }
 
+        /// <summary>
+        /// 测试log4net
+        /// </summary>
+        /// <returns></returns>
+        [HttpGet]
+        public async Task<string> TestLog4net()
+        {
+            _logger.LogInformation($"LogInformation-- 信息: {DateTime.Now}");
+            _logger.LogWarning($"LogWarning-- 警告: {DateTime.Now}");
+            _logger.LogError($"LogError-- 错误: {DateTime.Now}");
+            _logger.LogDebug($"LogDebug-- **debug**: {DateTime.Now}");
+
+            int a = 0, b = 1;
+            var c = b / a;
+
+            return await Task.Run(() =>
+            {
+                return "测试ok";
+            });
+
+        }
+
     }
 }
