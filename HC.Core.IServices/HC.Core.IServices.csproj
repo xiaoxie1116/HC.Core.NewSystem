@@ -5,8 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HC.Core.VModels\HC.Core.DTO.Models.csproj" />
-    <ProjectReference Include="..\HY.Core.DB.Entitys\HC.Core.DB.Entitys.csproj" />
+    <ProjectReference Include="..\HC.Core.DB.Entitys\HC.Core.DB.Entitys.csproj" />
+    <ProjectReference Include="..\HC.Core.DTO.Models\HC.Core.DTO.Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>

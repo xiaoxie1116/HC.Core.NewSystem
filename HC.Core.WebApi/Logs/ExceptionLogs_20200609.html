@@ -1,0 +1,55 @@
+        <hr color=red />         日志级别：ERROR 记录时间：2020-06-09 10:41:49,113  记录类：HC.NewSystem.WebApi.Filters.GlobalExceptionFilter 线程ID：[4]        <br/>设备信息：{ActionName=HC.NewSystem.API.Controllers.OrderInfoController.GetOrderByID (HC.NewSystem.WebApi), RequestId=8000003b-0005-fb00-b63f-84710c7967bb, log4net:UserName=NOT AVAILABLE, ParentId=, log4net:Identity=NOT AVAILABLE, SpanId=|e7fa91a3-4a77defa1478ef05., RequestPath=/api/OrderInfo/GetOrderByID, ActionId=82efb5d9-cc7b-4494-82f3-cf672ef111bd, TraceId=e7fa91a3-4a77defa1478ef05, log4net:HostName=DESKTOP-EOQDSDD}        <br/>日志信息：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Order -> OrderVM
+HC.Core.DB.Entitys.Order -> HC.Core.DTO.Models.OrderVM 自定义错误 ：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Order -> OrderVM
+HC.Core.DB.Entitys.Order -> HC.Core.DTO.Models.OrderVM  异常类型：AutoMapperMappingException 
+ 异常信息：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Order -> OrderVM
+HC.Core.DB.Entitys.Order -> HC.Core.DTO.Models.OrderVM 
+ 堆栈调用：   at lambda_method(Closure , Order , OrderVM , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at HC.Core.Services.OrderServices.GetEntityByID(Int32 OrderID) in E:\Documents\NewSystem\Code\HC.Core.NewSystem\HC.Core.Services\OrderServices.cs:line 36
+   at HC.NewSystem.API.Controllers.OrderInfoController.GetOrderByID(Int32 OrderID) in E:\Documents\NewSystem\Code\HC.Core.NewSystem\HC.NewSystem.API\Controllers\OrderInfoController.cs:line 37
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)           <br/>               <hr color=red />         日志级别：ERROR 记录时间：2020-06-09 11:48:02,209  记录类：HC.NewSystem.WebApi.Filters.GlobalExceptionFilter 线程ID：[4]        <br/>设备信息：{ActionId=ee773cb3-1005-4a13-955d-708d4aee67d8, log4net:UserName=NOT AVAILABLE, RequestId=80000075-0003-d200-b63f-84710c7967bb, SpanId=|493a2fe7-4b82779946af8a17., RequestPath=/api/OrderInfo/GetOrderByID, ParentId=, log4net:Identity=NOT AVAILABLE, TraceId=493a2fe7-4b82779946af8a17, log4net:HostName=DESKTOP-EOQDSDD, ActionName=HC.NewSystem.API.Controllers.OrderInfoController.GetOrderByID (HC.NewSystem.WebApi)}        <br/>日志信息：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Order -> OrderVM
+HC.Core.DB.Entitys.Order -> HC.Core.DTO.Models.OrderVM 自定义错误 ：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Order -> OrderVM
+HC.Core.DB.Entitys.Order -> HC.Core.DTO.Models.OrderVM  异常类型：AutoMapperMappingException 
+ 异常信息：Missing type map configuration or unsupported mapping.
+
+Mapping types:
+Order -> OrderVM
+HC.Core.DB.Entitys.Order -> HC.Core.DTO.Models.OrderVM 
+ 堆栈调用：   at lambda_method(Closure , Order , OrderVM , ResolutionContext )
+   at lambda_method(Closure , Object , Object , ResolutionContext )
+   at HC.Core.Services.OrderServices.GetEntityByID(Int32 OrderID) in E:\Documents\NewSystem\Code\HC.Core.NewSystem\HC.Core.Services\OrderServices.cs:line 36
+   at HC.NewSystem.API.Controllers.OrderInfoController.GetOrderByID(Int32 OrderID) in E:\Documents\NewSystem\Code\HC.Core.NewSystem\HC.NewSystem.API\Controllers\OrderInfoController.cs:line 37
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextExceptionFilterAsync>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)           <br/>       

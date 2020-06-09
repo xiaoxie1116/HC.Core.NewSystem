@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>E:\Documents\NewSystem\Code\HC.Core.NewSystem\HC.NewSystem.API\HC.NewSystem.WebApi.xml</DocumentationFile>
+    <DocumentationFile>..\HC.Core.WebApi\bin\Debug\netcoreapp3.1\HC.NewSystem.WebApi.xml</DocumentationFile>
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
 
@@ -38,15 +38,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="appsettings.json">
+    <Compile Update="Extensions\AddMapperExample.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="AutoMapper\AddMapperExample.cs">
+    <Content Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
+    </Content>
   </ItemGroup>
 
 

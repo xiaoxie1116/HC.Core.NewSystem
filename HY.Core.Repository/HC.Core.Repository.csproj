@@ -9,8 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HC.Core.DB.Entitys\HC.Core.DB.Entitys.csproj" />
     <ProjectReference Include="..\HC.Core.IRepository\HC.Core.IRepository.csproj" />
-    <ProjectReference Include="..\HY.Core.DB.Entitys\HC.Core.DB.Entitys.csproj" />
   </ItemGroup>
 
   <ItemGroup>

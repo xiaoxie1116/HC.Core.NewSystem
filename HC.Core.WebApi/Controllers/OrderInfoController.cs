@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using HC.Core.IServices;
 
-namespace HC.NewSystem.API.Controllers
+namespace HC.Core.WebApi.Controllers
 {
     /// <summary>
     /// 订单控制器

@@ -5,7 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HC.NewSystem.WebApi
+namespace HC.Core.WebApi
 {
     /// <summary>
     /// 设置 SwaggerUI 组件

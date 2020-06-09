@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HC.NewSystem.WebApi
+namespace HC.Core.WebApi
 {
     /// <summary>
     /// automapper 配置文件

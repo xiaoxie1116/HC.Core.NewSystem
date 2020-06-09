@@ -3,7 +3,7 @@ using Autofac.Extras.DynamicProxy;
 using HC.Common.Tools;
 using HC.Core.IServices;
 using HC.Core.Services;
-using HC.NewSystem.WebApi.AOP;
+using HC.Core.WebApi.AOP;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,7 +11,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 
-namespace HC.NewSystem.WebApi
+namespace HC.Core.WebApi
 {
     /// <summary>
     /// autoFac模块的注入
@@ -49,7 +49,7 @@ namespace HC.NewSystem.WebApi
             var assemblysRepository = Assembly.LoadFrom(repositoryDllFile);
             builder.RegisterAssemblyTypes(assemblysRepository).AsImplementedInterfaces().InstancePerDependency();
 
-            //builder.RegisterAssemblyTypes(System.Reflection.Assembly.GetExecutingAssembly()).Where(t => t.Name.EndsWith("Service")).AsImplementedInterfaces().InstancePerLifetimeScope();
+            builder.RegisterAssemblyTypes(System.Reflection.Assembly.GetExecutingAssembly()).Where(t => t.Name.EndsWith("Service")).AsImplementedInterfaces().InstancePerLifetimeScope();
             //builder.RegisterAssemblyTypes(System.Reflection.Assembly.GetExecutingAssembly()).Where(t => t.Name.EndsWith("Repository")).AsImplementedInterfaces().InstancePerLifetimeScope();
 
 

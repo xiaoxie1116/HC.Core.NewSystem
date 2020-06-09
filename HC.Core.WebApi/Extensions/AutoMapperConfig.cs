@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace HC.NewSystem.WebApi
+namespace HC.Core.WebApi
 {
     /// <summary>
     /// 注册 automapper 实例
@@ -15,7 +15,7 @@ namespace HC.NewSystem.WebApi
         {
             return new MapperConfiguration(cfg =>
             {
-                cfg.AddProfile(new AddMapperExample());
+                cfg.AddProfile(new Core.Services.AddMapperExample());
             });
         }
     }

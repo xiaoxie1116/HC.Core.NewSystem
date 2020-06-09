@@ -18,23 +18,27 @@ using Autofac.Extras.DynamicProxy;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
 using HC.Core.Repository;
-using HC.NewSystem.WebApi.Filters;
+using HC.Core.WebApi.Filters;
 
-namespace HC.NewSystem.WebApi
+namespace HC.Core.WebApi
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
+            Env = env;
         }
 
         public IConfiguration Configuration { get; }
 
+        public IWebHostEnvironment Env { get; }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
+            //日志AOP注册
+            services.AddSingleton(new Common.Tools.LoggerLock(Env.ContentRootPath));
             //注册要通过反射创建的组件
             var basePath = Path.GetDirectoryName(typeof(Program).Assembly.Location); //获取应用程序所在目录（绝对，不受工作目录影响，建议采用此方法获取路径）
             // Swagger UI

@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\HY.Core.DB.Entitys\HC.Core.DB.Entitys.csproj" />
+    <ProjectReference Include="..\HC.Core.DB.Entitys\HC.Core.DB.Entitys.csproj" />
   </ItemGroup>
 
   <ItemGroup>
